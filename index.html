@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>听风揽月轩 - 点菜系统</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/themes.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>听风揽月轩</h1>
+        </header>
+
+        <main class="main-content">
+            <section class="menu-section">
+                <h2>菜单</h2>
+                <div class="menu-categories">
+                    <!-- 菜品分类将通过 JavaScript 动态生成 -->
+                </div>
+                <div class="menu-items">
+                    <!-- 菜品列表将通过 JavaScript 动态生成 -->
+                </div>
+            </section>
+
+            <section class="order-section">
+                <h2>已选菜品</h2>
+                <div class="selected-items">
+                    <!-- 已选菜品将通过 JavaScript 动态更新 -->
+                </div>
+                <div class="order-summary">
+                    <div class="total-price">总计: ¥<span id="total-amount">0</span></div>
+                    <button id="confirm-order" class="primary-button">确认下单</button>
+                </div>
+                <div class="confirmed-orders" style="display: none;">
+                    <h3>已下单菜品</h3>
+                    <div class="confirmed-items">
+                        <!-- 已确认的订单将在这里显示 -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="scripts/menu-data.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html> 

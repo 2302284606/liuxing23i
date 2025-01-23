@@ -1,0 +1,225 @@
+/* 菜品卡片样式 */
+.menu-item {
+    background: white;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 160px;
+}
+
+.menu-item:not(:has(img)) {
+    justify-content: center;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+    transition: opacity 0.3s;
+}
+
+.menu-item img[src*="dummyimage.com"] {
+    opacity: 0.8;
+    padding: 20px;
+    object-fit: contain;
+}
+
+.menu-item-info {
+    margin-top: 15px;
+    padding: 0 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.menu-item-name {
+    font-weight: bold;
+    color: var(--text-color);
+    font-family: var(--header-font);
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.menu-item-price {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* 已选菜品样式 */
+.selected-items {
+    margin-bottom: 1rem;
+}
+
+.selected-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(139, 69, 19, 0.1);
+    animation: slideIn 0.3s ease-out;
+    font-family: var(--header-font);
+    font-size: 0.9rem;
+}
+
+.order-summary {
+    margin-top: 2rem;
+    text-align: right;
+}
+
+.total-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.menu-item.selected::after {
+    content: '✓';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: var(--primary-color);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pop 0.3s ease-out;
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(139, 69, 19, 0.2);
+}
+
+@keyframes pop {
+    0% { transform: scale(0); }
+    70% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.menu-item:active {
+    transform: scale(0.95);
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* 添加大屏幕适配 */
+@media (min-width: 1440px) {
+    .menu-item {
+        min-height: 280px;
+        padding: 15px;
+    }
+
+    .menu-item img {
+        height: 200px;
+    }
+
+    .menu-item-name {
+        font-size: 1.4rem;
+        margin-top: 15px;
+    }
+
+    .selected-item {
+        padding: 15px;
+        font-size: 1.2rem;
+    }
+
+    .menu-item.selected::after {
+        width: 36px;
+        height: 36px;
+        font-size: 1.4rem;
+        top: 10px;
+        right: 10px;
+    }
+}
+
+/* 平板和中等屏幕 */
+@media (min-width: 769px) and (max-width: 1439px) {
+    .menu-item {
+        min-height: 220px;
+        padding: 12px;
+    }
+
+    .menu-item img {
+        height: 160px;
+    }
+
+    .menu-item-name {
+        font-size: 1.2rem;
+    }
+
+    .selected-item {
+        padding: 12px;
+        font-size: 1.1rem;
+    }
+}
+
+/* 已确认订单样式 */
+.confirmed-orders {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 2px solid rgba(139, 69, 19, 0.1);
+}
+
+.confirmed-orders h3 {
+    color: var(--primary-color);
+    font-family: var(--header-font);
+    margin-bottom: 1rem;
+}
+
+.confirmed-order {
+    background: rgba(139, 69, 19, 0.05);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 1rem;
+}
+
+.order-time {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: 8px;
+}
+
+.confirmed-item {
+    padding: 4px 0;
+    font-family: var(--header-font);
+}
+
+/* 响应式调整 */
+@media (min-width: 1440px) {
+    .confirmed-orders h3 {
+        font-size: 1.4rem;
+    }
+    
+    .confirmed-item {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .confirmed-orders {
+        margin-top: 1rem;
+        padding-top: 0.5rem;
+    }
+    
+    .confirmed-item {
+        font-size: 0.9rem;
+    }
+} 
